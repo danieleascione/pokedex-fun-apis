@@ -6,7 +6,7 @@ plugins {
 }
 
 application {
-    mainClass.set("com.truelayer.MainKt")
+    mainClass.set("com.pokedex.MainKt")
 }
 
 group = "com.pokedex"
