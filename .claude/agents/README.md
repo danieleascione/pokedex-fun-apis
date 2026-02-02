@@ -14,7 +14,6 @@ Most of the agents are sourced from [andlaf-ak/claude-code-agents](https://githu
 | `user-story-writer` | Breaking features into granular, INVEST-compliant user stories | Green |
 | `atdd-developer` | Implementing user stories using Acceptance Test Driven Development | Cyan |
 | `code-smell-detector` | Analyzing code for quality issues and design problems | Yellow |
-| `legacy-code-expert` | Safely modifying legacy code and breaking dependencies | Green |
 | `refactoring-expert` | Generating comprehensive refactoring recommendations | Blue |
 | `test-design-reviewer` | Evaluating test quality using Dave Farley's principles | Orange |
 

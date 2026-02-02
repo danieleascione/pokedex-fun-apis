@@ -83,6 +83,12 @@ For each test case in the active plan:
 
 ### Before Refactoring
 Always ask before refactoring or suggest specific improvements and wait for approval.
+Invoke the following agents in parallel:
+- `@code-smell-detector`
+- `@test-design-reviewer`
+- `@refactoring-expert`
+
+Then plan a refactoring and agree with the user on what the user wants to do first.
 
 ### When Uncertain
 - If a test approach is unclear, discuss options before implementing
