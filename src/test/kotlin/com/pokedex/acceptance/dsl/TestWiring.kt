@@ -12,5 +12,9 @@ fun runAcceptanceTest(type: Type, testScenario: Dsl.() -> Unit) {
 }
 
 enum class Type {
+    /**
+     * This is supposed to hit a production-like environment.
+     * I'm taking a shortcut now and pretend the application will run in Docker in local.
+     */
     E2E,
 }
