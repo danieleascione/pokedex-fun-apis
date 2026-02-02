@@ -1,6 +1,6 @@
 package com.pokedex.acceptance
 
-import com.pokedex.acceptance.dsl.Type.*
+import com.pokedex.acceptance.dsl.TestEnvironment.E2E
 import com.pokedex.acceptance.dsl.pokemon
 import com.pokedex.acceptance.dsl.runAcceptanceTest
 import com.pokedex.acceptance.dsl.shouldHave
