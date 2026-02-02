@@ -4,6 +4,7 @@ import com.pokedex.acceptance.dsl.Type.*
 import com.pokedex.acceptance.dsl.pokemon
 import com.pokedex.acceptance.dsl.runAcceptanceTest
 import com.pokedex.acceptance.dsl.shouldHave
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 /**
@@ -15,6 +16,10 @@ import org.junit.jupiter.api.Test
  */
 class PokedexApisTest {
 
+    /**
+     * This test for now runs only if the application is running.
+     */
+    @Disabled("Search Pokemon information in progress")
     @Test
     fun `returns pokemon information by name`() = runAcceptanceTest(E2E) {
         pokemonApis.stores(pokemon(name = "pikachu"))
