@@ -1,10 +1,8 @@
 package com.pokedex.acceptance
 
-import com.pokedex.acceptance.dsl.WithTestEnvironment
 import com.pokedex.acceptance.dsl.pokemon
 import com.pokedex.acceptance.dsl.runAcceptanceTest
 import com.pokedex.acceptance.dsl.shouldHave
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 /**
