@@ -14,9 +14,6 @@ import org.junit.jupiter.api.Test
  */
 class PokedexApisTest {
 
-    /**
-     * This test for now runs only if the application is running.
-     */
     @Test
     fun `returns pokemon information by name`() = runAcceptanceTest {
         pokemonApis.stores(pokemon(name = "pikachu"))
