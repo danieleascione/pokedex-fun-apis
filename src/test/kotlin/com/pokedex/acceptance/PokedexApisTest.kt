@@ -1,6 +1,6 @@
 package com.pokedex.acceptance
 
-import com.pokedex.acceptance.dsl.TestEnvironment.EndToEnd
+import com.pokedex.acceptance.dsl.WithTestEnvironment
 import com.pokedex.acceptance.dsl.pokemon
 import com.pokedex.acceptance.dsl.runAcceptanceTest
 import com.pokedex.acceptance.dsl.shouldHave
@@ -19,9 +19,8 @@ class PokedexApisTest {
     /**
      * This test for now runs only if the application is running.
      */
-    @Disabled("The feature is in progress")
     @Test
-    fun `returns pokemon information by name`() = runAcceptanceTest(EndToEnd) {
+    fun `returns pokemon information by name`() = runAcceptanceTest {
         pokemonApis.stores(pokemon(name = "pikachu"))
 
         val pokemonInfo = pokedexApis.searchPokemon("pikachu")
