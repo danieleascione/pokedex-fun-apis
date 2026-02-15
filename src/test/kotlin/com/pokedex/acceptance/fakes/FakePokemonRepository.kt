@@ -12,7 +12,7 @@ class FakePokemonRepository : PokemonRepository {
         storedPokemon[pokemon.name] = pokemon
     }
 
-    override fun findByName(name: String): FindByNameResult {
+    override suspend fun findByName(name: String): FindByNameResult {
         val pokemon = storedPokemon[name]
         return FindByNameResult.Success(pokemon!!)
     }

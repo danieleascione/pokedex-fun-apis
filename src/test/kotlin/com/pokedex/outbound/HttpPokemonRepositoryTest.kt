@@ -4,6 +4,7 @@ import com.pokedex.domain.Pokemon
 import com.pokedex.shell.outbound.FindByNameResult
 import com.pokedex.shell.outbound.HttpPokemonRepository
 import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
 
 class HttpPokemonRepositoryTest {
@@ -11,7 +12,7 @@ class HttpPokemonRepositoryTest {
     val pokemonRepository = HttpPokemonRepository()
 
     @Test
-    fun `should find pokemon by name`() {
+    fun `should find pokemon by name`() = runBlocking {
         // Given
         val existingPokemonName = "pikachu"
 

@@ -28,9 +28,10 @@ dependencies {
 
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.kotest.assertions.core)
+    implementation(libs.ktor.client.cio)
+    implementation(libs.ktor.client.content.negotiation)
+
     testImplementation(libs.ktor.server.test.host)
-    testImplementation(libs.ktor.client.cio)
-    testImplementation(libs.ktor.client.content.negotiation)
     testRuntimeOnly(libs.junit.platform.launcher)
 }
 

@@ -4,7 +4,7 @@ import com.pokedex.domain.Pokemon
 
 interface PokemonRepository {
 
-    fun findByName(name: String): FindByNameResult
+    suspend fun findByName(name: String): FindByNameResult
 }
 
 sealed class FindByNameResult {
