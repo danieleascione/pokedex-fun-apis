@@ -1,9 +1,8 @@
 package com.pokedex.shell.outbound
 
 import com.pokedex.domain.Pokemon
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.jsonObject
-import kotlinx.serialization.json.jsonPrimitive
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -12,6 +11,7 @@ import java.net.http.HttpResponse
 class HttpPokemonRepository : PokemonRepository {
 
     private val client = HttpClient.newHttpClient()
+    private val json = Json { ignoreUnknownKeys = true }
 
     override fun findByName(name: String): FindByNameResult {
         val request = HttpRequest.newBuilder()
@@ -21,9 +21,11 @@ class HttpPokemonRepository : PokemonRepository {
 
         val response = client.send(request, HttpResponse.BodyHandlers.ofString())
 
-        val body = Json.parseToJsonElement(response.body()).jsonObject
-        val pokemonName = body["name"]!!.jsonPrimitive.content
+        val pokemonSpecies = json.decodeFromString<PokemonSpeciesResponse>(response.body())
 
-        return FindByNameResult.Success(Pokemon(name = pokemonName))
+        return FindByNameResult.Success(Pokemon(name = pokemonSpecies.name))
     }
+
+    @Serializable
+    private data class PokemonSpeciesResponse(val name: String)
 }
