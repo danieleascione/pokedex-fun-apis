@@ -23,10 +23,6 @@ class LocalPokedexApisDriver(private val pokemonRepository: PokemonRepository) :
             application {
                 module(pokemonRepository)
             }
-            client = createClient {
-                this@testApplication.install(ContentNegotiation) { json() }
-            }
-
             val response = client.get("/pokemon/$name")
 
             response.status shouldBe HttpStatusCode.OK
