@@ -10,9 +10,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
-class HttpPokemonRepository(
-    private val baseUrl: String = "https://pokeapi.co/api/v2",
-) : PokemonRepository {
+class HttpPokemonRepository(private val baseUrl: String = "https://pokeapi.co/api/v2") : PokemonRepository {
 
     private val client = HttpClient(CIO) {
         install(ContentNegotiation) {
