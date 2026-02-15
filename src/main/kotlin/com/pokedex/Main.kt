@@ -1,9 +1,10 @@
 package com.pokedex
 
+import com.pokedex.shell.getPokemonByName
+import com.pokedex.shell.healthCheck
 import io.ktor.server.application.Application
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
-import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
 
 fun main() {

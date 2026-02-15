@@ -5,15 +5,15 @@ import com.pokedex.acceptance.dsl.runAcceptanceTest
 import com.pokedex.acceptance.dsl.shouldHave
 import org.junit.jupiter.api.Test
 
-/**
- * Story 1.1: Retrieve Basic Pokemon by Name
- *
- * As an API consumer
- * I want to request Pokemon information by name
- * So that I can get essential details without parsing complex PokéAPI responses
- */
 class PokedexApisTest {
 
+    /**
+     * Story 1.1: Retrieve Basic Pokemon by Name
+     *
+     * As an API consumer
+     * I want to request Pokemon information by name
+     * So that I can get essential details without parsing complex PokéAPI responses
+     */
     @Test
     fun `returns pokemon information by name`() = runAcceptanceTest {
         pokemonApis.stores(pokemon(name = "pikachu"))

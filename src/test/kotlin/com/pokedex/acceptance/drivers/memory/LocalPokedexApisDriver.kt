@@ -1,4 +1,4 @@
-package com.pokedex.acceptance.dsl
+package com.pokedex.acceptance.drivers.memory
 
 import com.pokedex.acceptance.drivers.PokedexApisDriver
 import com.pokedex.domain.Pokemon
@@ -14,7 +14,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
-class PokedexApisServerSimulator : PokedexApisDriver {
+class LocalPokedexApisDriver : PokedexApisDriver {
 
     override fun searchPokemon(name: String): Pokemon {
         var pokemon: Pokemon? = null
@@ -27,9 +27,11 @@ class PokedexApisServerSimulator : PokedexApisDriver {
             }
 
             val response = client.get("/pokemon/$name")
+
             response.status shouldBe HttpStatusCode.OK
             val json = Json.parseToJsonElement(response.bodyAsText()).jsonObject
             val pokemonName = json["name"]?.jsonPrimitive?.content ?: error("Could not find pokemon name in response: $json")
+
             pokemon = Pokemon(name = pokemonName)
         }
         return pokemon ?: error("Pokemon with name $name not found")

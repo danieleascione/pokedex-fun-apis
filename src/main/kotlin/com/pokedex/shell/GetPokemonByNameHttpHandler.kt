@@ -1,4 +1,4 @@
-package com.pokedex
+package com.pokedex.shell
 
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Route

@@ -1,4 +1,4 @@
-package com.pokedex.acceptance.drivers.http
+package com.pokedex.acceptance.drivers.e2e
 
 import com.pokedex.acceptance.drivers.PokemonApisDriver
 

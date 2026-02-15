@@ -1,4 +1,4 @@
-package com.pokedex.acceptance.drivers.http
+package com.pokedex.acceptance.drivers.e2e
 
 import com.pokedex.acceptance.drivers.PokedexApisDriver
 import com.pokedex.domain.Pokemon
@@ -9,6 +9,7 @@ import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
+import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
@@ -25,7 +26,7 @@ class HttpPokedexApis(private val pokedexApisUrl: String = "http://localhost:808
         val pokemonEndpoint = "$pokedexApisUrl/pokemon/$name"
         val response = client.get(pokemonEndpoint)
         withClue("Pokedex APIs contacted at: $pokemonEndpoint didn't succeed") {
-            response.status.value shouldBe 200
+            response.status shouldBe HttpStatusCode.OK
         }
 
         val body = response.bodyAsText()
