@@ -24,6 +24,9 @@ docker build -t pokedex-fun-apis .
 docker run -p 8080:8080 pokedex-fun-apis
 ```
 
+The Dockerfile builds the jar and then starts the container where the application runs, meaning that it doesn't require 
+a Java installation on the host machine.
+
 **Test health endpoint:**
 ```bash
 curl http://localhost:8080/health

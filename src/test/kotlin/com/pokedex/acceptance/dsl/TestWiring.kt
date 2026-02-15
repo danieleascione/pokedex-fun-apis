@@ -6,8 +6,8 @@ import com.pokedex.acceptance.drivers.memory.InMemoryPokemonApis
 import com.pokedex.acceptance.drivers.memory.LocalPokedexApisDriver
 import com.pokedex.acceptance.fakes.FakePokemonRepository
 
-fun runAcceptanceTest(testScenario: Dsl.() -> Unit) {
-    testScenario(testEnvironment().wireDsl())
+fun runAcceptanceTest(environment: TestEnvironment = testEnvironment(), testScenario: Dsl.() -> Unit) {
+    testScenario(environment.wireDsl())
 }
 
 private fun testEnvironment(): TestEnvironment = when (System.getProperty("TEST_ENVIRONMENT") ?: System.getenv("TEST_ENVIRONMENT")) {
