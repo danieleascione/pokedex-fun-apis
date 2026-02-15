@@ -9,5 +9,5 @@ import com.pokedex.domain.Pokemon
  * Actor -> Pokedex Api -> **Pokemon Apis**
  */
 interface PokemonApisDriver {
-    fun stores(pokemon: Pokemon): Pokemon = pokemon
+    fun stores(pokemon: Pokemon)
 }

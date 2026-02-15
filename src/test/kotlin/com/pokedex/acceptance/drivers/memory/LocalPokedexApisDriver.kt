@@ -3,6 +3,7 @@ package com.pokedex.acceptance.drivers.memory
 import com.pokedex.acceptance.drivers.PokedexApisDriver
 import com.pokedex.domain.Pokemon
 import com.pokedex.module
+import com.pokedex.shell.outbound.PokemonRepository
 import io.kotest.matchers.shouldBe
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
@@ -14,13 +15,13 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
-class LocalPokedexApisDriver : PokedexApisDriver {
+class LocalPokedexApisDriver(private val pokemonRepository: PokemonRepository) : PokedexApisDriver {
 
     override fun searchPokemon(name: String): Pokemon {
         var pokemon: Pokemon? = null
         testApplication {
             application {
-                module()
+                module(pokemonRepository)
             }
             client = createClient {
                 this@testApplication.install(ContentNegotiation) { json() }

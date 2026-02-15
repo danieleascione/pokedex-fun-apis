@@ -2,7 +2,9 @@ package com.pokedex.acceptance.dsl
 
 import com.pokedex.acceptance.drivers.e2e.HttpPokedexApis
 import com.pokedex.acceptance.drivers.e2e.NoopPokemonApis
+import com.pokedex.acceptance.drivers.memory.InMemoryPokemonApis
 import com.pokedex.acceptance.drivers.memory.LocalPokedexApisDriver
+import com.pokedex.acceptance.fakes.FakePokemonRepository
 
 fun runAcceptanceTest(testScenario: Dsl.() -> Unit) {
     testScenario(testEnvironment().wireDsl())
@@ -29,6 +31,9 @@ sealed class TestEnvironment {
      * Hit the application without running the http server.
      */
     data object Component : TestEnvironment() {
-        override fun wireDsl(): Dsl = Dsl(NoopPokemonApis(), LocalPokedexApisDriver())
+        override fun wireDsl(): Dsl {
+            val fakePokemonRepo = FakePokemonRepository()
+            return Dsl(InMemoryPokemonApis(fakePokemonRepo), LocalPokedexApisDriver(fakePokemonRepo))
+        }
     }
 }
